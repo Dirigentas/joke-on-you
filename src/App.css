@@ -1,0 +1,10 @@
+body {
+    text-align: center;
+    margin: 0;
+}
+.container {
+    padding: 10px;
+    display: flex;
+    gap: 10px;
+    justify-content: space-around;
+}
