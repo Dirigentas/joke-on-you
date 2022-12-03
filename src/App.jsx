@@ -1,25 +1,29 @@
 import { useEffect } from 'react';
 import { useState } from 'react';
 import './App.css';
+import Jokes from './components/Jokes';
 
 function App() {
 
-    const [juokas, setJuokas] = useState();
+    const [juokas, setJuokas] = useState(null);
 
     useEffect(() => {
         fetch('https://v2.jokeapi.dev/joke/Programming?amount=10')
         .then((res) => res.json())
-        .then((data) => setJuokas(data));
+        .then((data) => {
+            console.log(data);
+            console.log(data.jokes);
+            setJuokas(data.jokes)
+        },
+        // ateičiai prisiminimas, čia error handlinti
+        );
     }, []);
 
     return (
         <div>
             <div className='container'>
               {
-                juokas?.jokes.map(j =><div key={j.id}>
-                    <h2>{j.joke}</h2>
-                    <h2>{j.setup} {j.delivery}</h2>
-                </div>)
+                juokas?.map(j =><Jokes key={j.id} j = {j}/>)
               }
             </div> 
         </div>
