@@ -11,8 +11,8 @@ function App() {
         fetch('https://v2.jokeapi.dev/joke/Programming?amount=10')
         .then((res) => res.json())
         .then((data) => {
-            console.log(data);
-            console.log(data.jokes);
+            // console.log(data);
+            // console.log(data.jokes);
             setJuokas(data.jokes)
         },
         // ateičiai prisiminimas, čia error handlinti
